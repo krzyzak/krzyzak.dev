@@ -1,0 +1,35 @@
+-
+  repo: "krzyzak/nazar"
+  description: "Enhances IRB & Pry console output with beautiful tabular formatting for ActiveRecord objects."
+  tags: [Ruby, IRB, Pry]
+  role: author
+
+-
+  repo: "krzyzak/pet_coder"
+  description: "A game that teaches children programming through Ruby. Learn to code by playing."
+  tags: [Ruby, Education, Game]
+  role: author
+
+-
+  repo: "wolfgangihloff/peergroup"
+  description: "A Rails-based decision-making tool. My first professional open source contribution."
+  tags: [Rails, WebSockets, JavaScript]
+  role: contrib
+
+-
+  repo: "rameerez/pricing_plans"
+  description: "Enforce pricing plan limits in Rails SaaS apps — entitlements, quotas, and feature gating with a clean DSL."
+  tags: [Rails, SaaS, Solopreneurship]
+  role: contrib
+
+-
+  repo: "exoego/rspec-openapi"
+  description: "Generate OpenAPI schemas from existing RSpec request specs — no special DSL required."
+  tags: [RSpec, OpenAPI]
+  role: contrib
+
+-
+  repo: "heartcombo/simple_form"
+  description: "The most widely-used Rails form library. Simple DSL, no opinion on markup, used across millions of Rails apps."
+  tags: [Rails, Forms]
+  role: contrib
