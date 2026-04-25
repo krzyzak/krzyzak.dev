@@ -8,3 +8,55 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #07080f; font-family: 'Inter', sans-serif; color: #e2e8f0; }
+
+/* ── CRT effects ── */
+.crt-grid {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(74,222,128,0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,222,128,0.055) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: gridPulse 6s ease-in-out infinite;
+}
+.crt-lines {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 4px);
+}
+.crt-scanlines {
+  position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
+  animation: flicker 8s ease-in-out infinite;
+}
+.crt-scanline-a {
+  position: absolute; left: 0; right: 0; height: 180px;
+  background: linear-gradient(to bottom, transparent, rgba(74,222,128,0.04), rgba(74,222,128,0.02), transparent);
+  animation: scanline 8s linear infinite;
+}
+.crt-scanline-b {
+  position: absolute; left: 0; right: 0; height: 80px;
+  background: linear-gradient(to bottom, transparent, rgba(74,222,128,0.025), transparent);
+  animation: scanline 13s linear infinite;
+  animation-delay: -5s;
+}
+
+@keyframes gridPulse { 0%,100% { opacity:.5; } 50% { opacity:1; } }
+@keyframes flicker { 0%,100%{opacity:1} 92%{opacity:1} 93%{opacity:.85} 94%{opacity:1} 96%{opacity:.9} 97%{opacity:1} }
+@keyframes scanline { 0%{transform:translateY(-100%)} 100%{transform:translateY(100vh)} }
+
+
+/* ── Accordion ── */
+.acc-body {
+  max-height: 0; overflow: hidden;
+  border-left: 2px solid rgba(255,255,255,0.07);
+  transition: max-height .35s cubic-bezier(.4,0,.2,1), padding .3s ease;
+}
+.acc-body.open { max-height: 200px; }
+.acc-arrow { transform: rotate(-90deg); transition: transform .25s ease; }
+.acc-item.open .acc-body { border-left-color: #4ade80; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #07080f; }
+::-webkit-scrollbar-thumb { background: rgba(74,222,128,0.2); border-radius: 3px; }

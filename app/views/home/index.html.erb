@@ -1,1 +1,106 @@
-Hello world!
+<div class="grid grid-cols-hero gap-12 px-18 pt-14 items-start max-[1100px]:grid-cols-hero-md max-[1100px]:gap-8 max-[1100px]:px-10 max-[1100px]:pt-10 max-[768px]:grid-cols-1 max-[768px]:px-5 max-[768px]:pt-8 max-[768px]:gap-10">
+  <div id="about">
+    <div class="flex items-center gap-2 font-mono text-sm text-slate-700 mb-3.5">
+      <span class="text-green-400">❯</span>
+      <span class="text-slate-400">whoami</span>
+    </div>
+
+    <div class="mb-5">
+      <h1 class="font-sans text-7xl font-extrabold leading-[.92] tracking-[-0.04em] mt-0 mb-1 text-slate-50 max-[1100px]:text-6xl max-[768px]:!text-5xl max-[480px]:!text-4xl">Michał</h1>
+      <h1 class="font-sans text-7xl font-light leading-[.92] tracking-[-0.03em] italic mt-0 mb-5 text-slate-400 max-[1100px]:text-6xl max-[768px]:!text-5xl max-[480px]:!text-4xl">Krzyżanowski</h1>
+      <div class="font-mono text-xl text-green-400 font-medium tracking-[-0.01em] max-[768px]:text-base">@krzyzak</div>
+    </div>
+
+    <div class="flex items-center gap-3 flex-wrap font-mono text-base mb-6">
+      <span class="text-slate-200">Principal Engineer</span>
+      <span class="text-slate-800">//</span>
+      <span class="text-slate-400">Ruby &amp; Rails</span>
+      <span class="text-slate-800">//</span>
+      <span class="text-slate-500" data-controller="years">15+ yrs</span>
+    </div>
+
+    <div class="font-mono text-xs leading-[1.9] text-slate-500 mb-8 px-6 py-5 bg-white/5 border border-white/5 rounded-md">
+      <span class="text-slate-700">/**</span><br>
+      &nbsp;* From architecting MVPs as a sole developer<br>
+      &nbsp;* to Principal Engineer across a <span class="text-violet-400">200+ engineer organisation</span> at Toptal.<br>
+      &nbsp;* Mostly fintech, travel, carbon markets, and SaaS &mdash; though happy to work on new domains.<br>
+      <span class="text-slate-700">&nbsp;*/</span>
+    </div>
+
+    <div class="mb-8">
+      <div class="font-mono text-2xs text-slate-700 tracking-widest uppercase mb-3.5">// open source</div>
+      <div class="grid grid-cols-3 gap-3.5 max-[1100px]:grid-cols-2 max-[768px]:grid-cols-1">
+        <% OpenSourceProject.all.each do |project| %>
+          <%= render UI::OpenSourceCardComponent.new(**project.to_h) %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <div class="font-mono text-2xs text-slate-700 tracking-widest uppercase mb-3">// stack</div>
+      <div class="flex flex-wrap gap-2 justify-center">
+        <% skills = Skill.all %>
+        <% skills.first(7).each do |item| %>
+          <%= render UI::SkillComponent.new(**item.to_h) %>
+        <% end %>
+        <div class="w-full"></div>
+        <% skills.drop(7).each do |item| %>
+          <%= render UI::SkillComponent.new(**item.to_h) %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="mb-7">
+      <div class="font-mono text-2xs text-slate-700 tracking-widest uppercase mb-3.5">// can help with</div>
+      <div class="grid grid-cols-2 gap-2.5 max-[768px]:grid-cols-1">
+        <% Service.all.each do |service| %>
+          <%= render UI::ServiceCardComponent.new(**service.to_h) %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-3 justify-center max-[768px]:flex-col max-[768px]:items-stretch">
+      <a href="mailto:michal.krzyzanowski@gmail.com"
+          class="inline-flex items-center justify-center font-mono text-sm font-bold text-midnight bg-green-400 px-7 py-3.5 rounded no-underline transition-all hover:bg-green-300 hover:shadow-[0_0_18px_rgba(74,222,128,0.35)]">
+        $ hire --me
+      </a>
+      <a href="https://github.com/krzyzak"
+          class="flex items-center justify-center gap-2 font-mono text-sm text-slate-400 bg-white/5 border border-white/10 px-6 py-3.5 rounded no-underline transition-all hover:bg-white/10 hover:border-white/20 hover:text-slate-50">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        ~/github ↗
+      </a>
+      <a href="https://linkedin.com/in/krzyzak"
+          class="flex items-center justify-center gap-2 font-mono text-sm text-slate-400 bg-white/5 border border-white/10 px-6 py-3.5 rounded no-underline transition-all hover:bg-white/10 hover:border-white/20 hover:text-slate-50">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        ~/linkedin ↗
+      </a>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-5 max-[768px]:order-first">
+    <div class="rounded-xl overflow-hidden border border-green-400/10 relative">
+      <%= image_tag "profile.webp", alt: "Michał Krzyżanowski", class: "w-full h-72 object-cover object-top block brightness-[.88] contrast-[1.05]" %>
+      <div class="absolute inset-0 bg-gradient-to-t from-midnight/70 to-transparent"></div>
+      <div class="absolute bottom-3.5 left-3.5 flex items-center gap-2 bg-midnight/75 border border-green-400/20 px-3.5 py-2 rounded backdrop-blur-sm">
+        <div class="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_#4ade80]"></div>
+        <span class="font-mono text-xs text-slate-400">available for remote positions only</span>
+      </div>
+    </div>
+
+    <div id="work" data-controller="accordion" class="bg-white/5 border border-white/10 rounded-xl overflow-hidden backdrop-blur-sm">
+      <div class="font-mono text-2xs text-slate-700 tracking-widest uppercase px-6 pt-4 pb-3 border-b border-white/5">// selected experience</div>
+      <% Experience.all.each do |experience| %>
+        <%= render UI::ExperienceItemComponent.new(**experience.to_h) %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<div id="contact" class="flex items-center justify-between px-18 py-16 mt-12 border-t border-green-400/10 max-[1100px]:px-10 max-[1100px]:py-12 max-[768px]:flex-col max-[768px]:items-start max-[768px]:gap-4 max-[768px]:px-5 max-[768px]:py-10">
+  <div>
+    <div class="font-mono text-2xs text-slate-700 tracking-widest uppercase mb-2.5">// get in touch</div>
+    <a href="mailto:michal.krzyzanowski@gmail.com" class="font-mono text-base text-green-400 no-underline">michal.krzyzanowski@gmail.com</a>
+  </div>
+  <div class="font-mono text-xs text-slate-700">krzyzak.dev &mdash; Poland &middot; Remote</div>
+</div>

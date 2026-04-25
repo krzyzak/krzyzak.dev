@@ -1,31 +1,81 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= content_for(:title) || "Krzyzak Dev" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Krzyzak Dev">
-    <meta name="mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <%= yield :head %>
+  <title><%= content_for(:title) || "Michał Krzyżanowski — Principal Engineer" %></title>
+  <meta name="description" content="<%= content_for(:description) || "Principal Engineer with 15+ years in Ruby & Rails. Available for fractional CTO, system architecture, engineering leadership, and MVP development. Remote." %>">
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://krzyzak.dev">
+  <meta property="og:title" content="<%= content_for(:og_title) || "Michał Krzyżanowski — Principal Engineer" %>">
+  <meta property="og:description" content="<%= content_for(:og_description) || "Principal Engineer with 15+ years in Ruby & Rails. Fractional CTO, system architecture, engineering leadership." %>">
+  <meta property="og:image" content="https://krzyzak.dev/uploads/profile.jpg">
 
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Michał Krzyżanowski">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#07080f">
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
-  </body>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= yield :head %>
+
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+
+  <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
+<body>
+
+<!-- CRT layer -->
+<div class="crt-grid"></div>
+<div class="crt-lines"></div>
+<div class="crt-scanlines">
+  <div class="crt-scanline-a"></div>
+  <div class="crt-scanline-b"></div>
+</div>
+
+<div class="relative z-10 min-h-screen">
+
+  <nav class="relative flex items-center justify-between px-18 py-7 border-b border-green-400/10 max-[1100px]:px-10 max-[1100px]:py-6 max-[768px]:px-5 max-[768px]:py-4" data-controller="nav">
+    <div class="flex items-center gap-2 font-mono">
+      <span class="text-base text-green-400 font-medium">krzyzak</span>
+      <span class="text-base text-slate-700">.dev</span>
+      <span class="text-base text-green-400">▮</span>
+    </div>
+
+    <button class="hidden max-[768px]:block font-mono text-base text-green-400 bg-transparent border border-green-400/25 px-3 py-2 rounded cursor-pointer" aria-label="Menu" data-action="click->nav#toggle">≡</button>
+
+    <div class="flex gap-10 font-mono max-[768px]:hidden">
+      <a href="#about"   class="text-sm text-slate-600 no-underline">./about</a>
+      <a href="#work"    class="text-sm text-slate-600 no-underline">./work</a>
+      <a href="#contact" class="text-sm text-slate-600 no-underline">./contact</a>
+    </div>
+
+    <a href="mailto:michal.krzyzanowski@gmail.com" class="font-mono text-xs text-green-400 border border-green-400/25 px-5 py-2 rounded no-underline bg-green-400/5 transition-all hover:bg-green-400/10 hover:border-green-400/50 hover:shadow-[0_0_14px_rgba(74,222,128,0.15)] max-[768px]:hidden">$ contact --me</a>
+
+    <div data-nav-target="drawer" class="absolute top-full left-0 right-0 z-50 flex-col gap-4 px-6 py-5 bg-midnight border-b border-green-400/10" style="display:none;">
+      <a href="#about"   class="font-mono text-sm text-slate-400 no-underline" data-action="click->nav#close">./about</a>
+      <a href="#work"    class="font-mono text-sm text-slate-400 no-underline" data-action="click->nav#close">./work</a>
+      <a href="#contact" class="font-mono text-sm text-slate-400 no-underline" data-action="click->nav#close">./contact</a>
+      <a href="mailto:michal.krzyzanowski@gmail.com" class="self-start font-mono text-xs text-green-400 border border-green-400/25 px-5 py-2 rounded no-underline bg-green-400/5 transition-all hover:bg-green-400/10 hover:border-green-400/50" data-action="click->nav#close">$ contact --me</a>
+    </div>
+  </nav>
+
+  <%= yield %>
+
+</div>
+
+</body>
 </html>
