@@ -1,0 +1,39 @@
+- title: "System Architecture"
+  description: >-
+    Design scalable, maintainable systems — from greenfield builds to legacy rewrites.
+    Multi-tenant SaaS, high-throughput APIs, PostGIS-backed geo systems handling millions of users.
+
+- title: "Backend Engineering"
+  description: >-
+    Hands-on backend development in Ruby and Rails. API design, data modelling, background processing,
+    third-party integrations — reliable, well-tested, production-ready code.
+
+- title: "Fractional CTO"
+  description: >-
+    Strategic technical leadership without the full-time cost. I help early-stage companies make the right
+    architectural bets, set up CI/CD & culture, and avoid the classic mistakes that slow down scale.
+
+- title: "Technical Strategy"
+  description: >-
+    Bridge the gap between business objectives and engineering execution. Translate complex product
+    requirements into clear technical roadmaps and help stakeholders make confident decisions.
+
+- title: "MVP Development"
+  description: >-
+    Ship fast, learn faster. I've built production-ready MVPs solo — from database schema to deployment —
+    and know how to prioritise ruthlessly to get something real in front of users quickly.
+
+- title: "Performance Scaling"
+  description: >-
+    Diagnose where bottlenecks actually are — slow queries, missing indexes, N+1s, cache misses — and
+    fix them. I can meaningfully improve the performance of critical paths in existing Rails applications.
+
+- title: "Code Review & Mentoring"
+  description: >-
+    Raise the bar across your team. I embed quality standards through thoughtful review, pairing, and
+    async feedback — resulting in codebases that are easier to test, change, and understand.
+
+- title: "API Design"
+  description: >-
+    Build clean, versioned, well-documented APIs. Whether REST or GraphQL, I design contracts that
+    frontend teams love and that stay maintainable as requirements evolve.

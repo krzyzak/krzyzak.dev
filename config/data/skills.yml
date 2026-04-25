@@ -1,0 +1,47 @@
+- name: Ruby
+  description: My primary language for 15+ years. The one I reach for when the problem matters more than the tooling.
+  style: primary
+
+- name: Rails
+  description: The framework that lets me ship fast without sacrificing structure. From MVPs to large multi-tenant platforms.
+  style: primary
+
+- name: AI/LLMs
+  description: Integrating language models into real products — MCP servers, agent tooling, LLM-assisted workflows.
+  style: primary
+
+- name: PostgreSQL
+  description: My default database. Complex queries, PostGIS geo systems, high-throughput workloads — it handles everything.
+  style: primary
+
+- name: Hotwire
+  description: Building fast, reactive Rails apps with Turbo and Stimulus — and extending them to native mobile with Hotwire Native.
+  style: primary
+
+- name: JavaScript/TypeScript
+  description: A decade of JavaScript across the full web stack — from vanilla ES to typed TypeScript in modern frontend and full-stack projects.
+  style: secondary
+
+- name: APIs
+  description: Designing and consuming REST, GraphQL, and webhook-based APIs — from clean contracts to resilient integrations with third-party services.
+  style: secondary
+
+- name: GraphQL
+  description: Designed and maintained GraphQL APIs across large-scale, heavily used products.
+  style: secondary
+
+- name: React
+  description: Frontend when needed. Comfortable with hooks, component architecture, and TypeScript.
+  style: secondary
+
+- name: SQL
+  description: Complex queries, window functions, query optimisation, schema design — comfortable going deep when the ORM isn't enough.
+  style: secondary
+
+- name: NoSQL
+  description: Redis, MongoDB, and others — picking the right store for the job, whether that's caching, documents, or key-value data.
+  style: secondary
+
+- name: "+ whatever it takes"
+  description: The engineering world moves fast. I pick up new tools and technologies quickly — if it solves the problem, I'll learn it.
+  style: dotted
