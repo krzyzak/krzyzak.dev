@@ -10,39 +10,39 @@
  */
 
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; background: #07080f; font-family: 'Inter', sans-serif; color: #e2e8f0; }
+body { margin: 0; background: #07080f; font-family: 'Inter', sans-serif; color: #f1f5f9; }
 
 /* ── CRT effects ── */
 .crt-grid {
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
   background-image:
-    linear-gradient(rgba(74,222,128,0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(74,222,128,0.055) 1px, transparent 1px);
+    linear-gradient(rgba(74,222,128,0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74,222,128,0.09) 1px, transparent 1px);
   background-size: 48px 48px;
   animation: gridPulse 6s ease-in-out infinite;
 }
 .crt-lines {
   position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 4px);
+  background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0.15) 4px);
 }
 .crt-scanlines {
   position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0;
   animation: flicker 8s ease-in-out infinite;
 }
 .crt-scanline-a {
-  position: absolute; left: 0; right: 0; height: 180px;
-  background: linear-gradient(to bottom, transparent, rgba(74,222,128,0.04), rgba(74,222,128,0.02), transparent);
+  position: absolute; left: 0; right: 0; height: 200px;
+  background: linear-gradient(to bottom, transparent, rgba(74,222,128,0.07), rgba(74,222,128,0.04), transparent);
   animation: scanline 8s linear infinite;
 }
 .crt-scanline-b {
-  position: absolute; left: 0; right: 0; height: 80px;
-  background: linear-gradient(to bottom, transparent, rgba(74,222,128,0.025), transparent);
+  position: absolute; left: 0; right: 0; height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(74,222,128,0.05), transparent);
   animation: scanline 13s linear infinite;
   animation-delay: -5s;
 }
 
-@keyframes gridPulse { 0%,100% { opacity:.5; } 50% { opacity:1; } }
-@keyframes flicker { 0%,100%{opacity:1} 92%{opacity:1} 93%{opacity:.85} 94%{opacity:1} 96%{opacity:.9} 97%{opacity:1} }
+@keyframes gridPulse { 0%,100% { opacity:.45; } 50% { opacity:1; } }
+@keyframes flicker { 0%,100%{opacity:1} 91%{opacity:1} 92%{opacity:.75} 93%{opacity:1} 95%{opacity:.85} 96%{opacity:1} 98%{opacity:.9} 99%{opacity:1} }
 @keyframes scanline { 0%{transform:translateY(-100%)} 100%{transform:translateY(100vh)} }
 
 

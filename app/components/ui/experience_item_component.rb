@@ -38,7 +38,7 @@ module UI
     def company_tag
       content_tag(:div, class: "flex flex-col gap-1") do
         concat content_tag(:span, company, class: class_names("font-sans text-sm font-semibold", "text-slate-50": featured?, "text-slate-400": !featured?))
-        concat content_tag(:span, role, class: class_names("font-mono text-xs", "text-green-400": featured?, "text-slate-600": !featured?))
+        concat content_tag(:span, role, class: class_names("font-mono text-xs", "text-green-400": featured?, "text-slate-500": !featured?))
       end
     end
 
@@ -48,7 +48,7 @@ module UI
 
     def body_tag
       content_tag(:div, class: class_names("acc-body ml-5 pl-4 pr-6", "open": featured?), style: featured? ? "padding-bottom:16px" : nil) do
-        content_tag(:p, description, class: "font-sans text-xs text-slate-500 leading-relaxed m-0")
+        content_tag(:p, description, class: "font-sans text-xs text-slate-400 leading-relaxed m-0")
       end
     end
   end
