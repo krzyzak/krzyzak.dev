@@ -1,0 +1,9 @@
+{
+  "name": "krzyzak-dev",
+  "compatibility_date": "2026-04-25",
+  "assets": {
+    "directory": "./build",    
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
