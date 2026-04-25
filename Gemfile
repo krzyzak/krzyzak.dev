@@ -16,6 +16,8 @@ gem "turbo-rails"
 gem "stimulus-rails"
 # View components for Rails [https://viewcomponent.org/]
 gem "view_component"
+# Static site generator for Rails [https://parklife.dev/rails]
+gem "parklife-rails"
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
