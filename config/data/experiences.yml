@@ -1,0 +1,19 @@
+- company: Toptal
+  role: Principal Engineer
+  description: "Promoted to the first Principal Engineer in Toptal’s history, leading technical strategy across a 200+ engineering organisation — the world’s largest fully-remote freelance talent network. Spearheaded company-wide technical initiatives and mentored senior engineers across multiple product teams."
+  featured: true
+
+- company: B4B Payments
+  role: Staff Backend Engineer
+  description: "Led a complete rewrite of the sanctions-checking system to handle 300% traffic growth and evolving fintech compliance requirements. Conducted risk assessment, translated complex regulatory needs into technical specs, and managed end-to-end delivery including stakeholder communication and cross-team coordination."
+  featured: false
+
+- company: Zero44
+  role: Backend Engineer
+  description: "Developed cutting-edge backend systems for an EU ETS (Emission Trading System) quota management platform serving enterprise clients in the carbon trading market. Built high-performance data pipelines and API integrations handling complex regulatory compliance and real-time market data."
+  featured: false
+
+- company: Lonely Planet
+  role: Senior Ruby Developer
+  description: "Built a robust data integration platform processing travel information from 50+ diverse partner APIs for the world’s leading travel guide company. Implemented aggregation, sanitisation, and normalisation systems handling millions of data points."
+  featured: false
