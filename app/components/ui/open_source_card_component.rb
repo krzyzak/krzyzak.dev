@@ -1,10 +1,11 @@
 module UI
   class OpenSourceCardComponent < ApplicationComponent
-    def initialize(repo:, description:, tags:, role: :author)
+    def initialize(repo:, description:, tags:, role: :author, shortcut: nil)
       @repo = repo
       @description = description
       @tags = tags
       @role = role
+      @shortcut = shortcut
     end
 
     def url
@@ -23,13 +24,23 @@ module UI
       ))
     end
 
+    def link_options
+      {
+        target: "_blank",
+        rel: "noopener noreferrer",
+        aria: { label: "#{repo} — #{description} (opens in new tab)" },
+        data: shortcut ? { oss_target: shortcut.downcase } : {},
+        class: "group block bg-white/[2.5%] border border-white/10 rounded-lg px-4 py-4 no-underline transition-all hover:bg-white/5 hover:border-green-400/20"
+      }
+    end
+
     def tag_pill(tag)
       content_tag(:span, tag, class: class_names("font-mono text-2xs text-slate-600 bg-white/5 border border-white/5 px-2 py-0.5 rounded-sm"))
     end
 
     private
 
-    attr_reader :repo, :description, :tags, :role
+    attr_reader :repo, :description, :tags, :role, :shortcut
 
     def repo_url
       "https://github.com/#{repo}"

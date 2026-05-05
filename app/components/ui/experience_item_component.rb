@@ -1,10 +1,11 @@
 module UI
   class ExperienceItemComponent < ApplicationComponent
-    def initialize(company:, role:, description:, featured: false)
+    def initialize(company:, role:, description:, featured: false, shortcut: nil)
       @company = company
       @role = role
       @description = description
       @featured = featured
+      @shortcut = shortcut
     end
 
     def call
@@ -16,7 +17,7 @@ module UI
 
     private
 
-    attr_reader :company, :role, :description, :featured
+    attr_reader :company, :role, :description, :featured, :shortcut
 
     alias featured? featured
 
@@ -29,10 +30,23 @@ module UI
     end
 
     def trigger_tag
-      content_tag(:button, class: trigger_classes, data: { action: "click->accordion#toggle" }) do
+      content_tag(:button, class: trigger_classes,
+                  aria: { expanded: featured?.to_s, controls: body_id },
+                  data: { action: "click->accordion#toggle" }) do
         concat company_tag
+        concat right_tag
+      end
+    end
+
+    def right_tag
+      content_tag(:div, class: "flex items-center gap-2 shrink-0") do
+        concat kbd_tag if shortcut
         concat arrow_tag
       end
+    end
+
+    def kbd_tag
+      content_tag(:kbd, shortcut, class: "font-mono text-2xs text-slate-600 bg-white/[3%] border border-white/[8%] px-1.5 py-0.5 rounded leading-none")
     end
 
     def company_tag
@@ -47,9 +61,13 @@ module UI
     end
 
     def body_tag
-      content_tag(:div, class: class_names("acc-body ml-5 pl-4 pr-6", "open": featured?), style: featured? ? "padding-bottom:16px" : nil) do
+      content_tag(:div, id: body_id, class: class_names("acc-body ml-5 pl-4 pr-6", "open": featured?), style: featured? ? "padding-bottom:16px" : nil) do
         content_tag(:p, description, class: "font-sans text-xs text-slate-400 leading-relaxed m-0")
       end
+    end
+
+    def body_id
+      "exp-#{company.parameterize}-body"
     end
   end
 end

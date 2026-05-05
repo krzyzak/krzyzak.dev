@@ -1,16 +1,20 @@
-<a href="<%= url %>" target="_blank" rel="noopener"
-   class="group block bg-white/[2.5%] border border-white/10 rounded-lg px-4 py-4 no-underline transition-all hover:bg-white/5 hover:border-green-400/20">
+<%= link_to url, **link_options do %>
   <div class="flex items-center justify-between mb-2">
-    <div class="flex items-center gap-1.5 flex-wrap">
+    <div class="flex items-center gap-1.5 flex-wrap" aria-hidden="true">
       <%= repo_name %>
       <%= role_badge %>
     </div>
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" class="shrink-0 stroke-white/20 group-hover:stroke-green-400 transition-colors"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    <div class="flex items-center gap-1.5 shrink-0">
+      <% if shortcut %>
+        <kbd aria-hidden="true" class="font-mono text-2xs text-slate-600 bg-white/[3%] border border-white/[8%] px-1.5 py-0.5 rounded leading-none"><%= shortcut %></kbd>
+      <% end %>
+      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2" class="stroke-white/20 group-hover:stroke-green-400 transition-colors"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+    </div>
   </div>
-  <p class="font-sans text-xs text-slate-400 leading-relaxed mt-0 mb-2.5"><%= description %></p>
-  <div class="flex gap-1.5 flex-wrap">
+  <p class="font-sans text-xs text-slate-400 leading-relaxed mt-0 mb-2.5" aria-hidden="true"><%= description %></p>
+  <div class="flex gap-1.5 flex-wrap" aria-hidden="true">
     <% tags.each do |tag| %>
       <%= tag_pill(tag) %>
     <% end %>
   </div>
-</a>
+<% end %>

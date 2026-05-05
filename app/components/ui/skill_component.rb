@@ -11,9 +11,11 @@ module UI
     end
 
     def call
-      content_tag(:span, class: pill_classes, data: pill_data) do
+      content_tag(:span, class: pill_classes, tabindex: dotted? ? "0" : nil,
+                  aria: dotted? ? { describedby: tooltip_id } : nil,
+                  data: pill_data) do
         concat name
-        concat tooltip_tag
+        concat tooltip_tag if dotted?
       end
     end
 
@@ -33,11 +35,16 @@ module UI
     end
 
     def pill_data
-      { controller: "tooltip", action: "mouseenter->tooltip#show mouseleave->tooltip#hide" }
+      return {} unless dotted?
+      { controller: "tooltip", action: "mouseenter->tooltip#show mouseleave->tooltip#hide focus->tooltip#show blur->tooltip#hide" }
+    end
+
+    def tooltip_id
+      "tooltip-#{name.parameterize}"
     end
 
     def tooltip_tag
-      content_tag(:span, class: TOOLTIP_CLASSES, data: tooltip_data) do
+      content_tag(:span, id: tooltip_id, role: "tooltip", class: TOOLTIP_CLASSES, data: tooltip_data) do
         concat description
         concat caret_tag
       end
