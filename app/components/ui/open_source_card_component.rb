@@ -13,14 +13,14 @@ module UI
     end
 
     def repo_name
-      content_tag(:span, repo, class: class_names("font-mono text-xs font-semibold", "text-green-400": author?, "text-slate-400": contributor?))
+      content_tag(:span, repo, class: class_names("font-mono text-xs font-semibold truncate min-w-0", "text-green-400": author?, "text-slate-400": contributor?))
     end
 
     def role_badge
       content_tag(:span, role_badge_text, class: class_names(
-        "font-mono text-3xs font-bold px-1.5 py-0.5 rounded-sm whitespace-nowrap border transition-all",
-        "text-green-400/60 bg-green-400/10 border-green-400/15 group-hover:bg-green-400 group-hover:text-midnight group-hover:border-transparent": author?,
-        "text-violet-400/50 bg-violet-400/5 border-violet-400/10 group-hover:bg-violet-400/10 group-hover:border-violet-400/25 group-hover:text-violet-400": contributor?
+        "font-mono text-3xs font-bold px-1.5 py-0.5 rounded-sm whitespace-nowrap shrink-0 border transition-all",
+        "text-green-400 bg-green-400/10 border-green-400/15 group-hover:bg-green-400 group-hover:text-midnight group-hover:border-transparent": author?,
+        "text-violet-400 bg-violet-400/5 border-violet-400/10 group-hover:bg-violet-400/10 group-hover:border-violet-400/25 group-hover:text-violet-400": contributor?
       ))
     end
 
@@ -35,7 +35,7 @@ module UI
     end
 
     def tag_pill(tag)
-      content_tag(:span, tag, class: class_names("font-mono text-2xs text-slate-600 bg-white/5 border border-white/5 px-2 py-0.5 rounded-sm"))
+      content_tag(:span, tag, class: class_names("font-mono text-2xs text-slate-400 bg-white/5 border border-white/5 px-2 py-0.5 rounded-sm"))
     end
 
     private

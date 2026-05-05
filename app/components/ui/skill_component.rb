@@ -11,7 +11,7 @@ module UI
     end
 
     def call
-      content_tag(:span, class: pill_classes, tabindex: dotted? ? "0" : nil,
+      content_tag(:span, role: "listitem", class: pill_classes, tabindex: dotted? ? "0" : nil,
                   aria: dotted? ? { describedby: tooltip_id } : nil,
                   data: pill_data) do
         concat name
