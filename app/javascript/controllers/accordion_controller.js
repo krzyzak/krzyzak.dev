@@ -11,6 +11,12 @@ export default class extends Controller {
     if (!isOpen) this.#open(item)
   }
 
+  shortcut(event) {
+    const item = this.itemTargets[parseInt(event.key) - 1]
+    if (!item) return
+    item.querySelector("[data-action*='accordion#toggle']")?.click()
+  }
+
   #open(item) {
     const body  = item.querySelector(".acc-body")
     const arrow = item.querySelector(".acc-arrow")
@@ -22,6 +28,7 @@ export default class extends Controller {
     arrow.style.transform = "rotate(0deg)"
     arrow.style.color = "#4ade80"
     btn.style.background = "rgba(74,222,128,0.04)"
+    btn.setAttribute("aria-expanded", "true")
   }
 
   #close(item) {
@@ -35,5 +42,6 @@ export default class extends Controller {
     arrow.style.transform = "rotate(-90deg)"
     arrow.style.color = "#334155"
     btn.style.background = "transparent"
+    btn.setAttribute("aria-expanded", "false")
   }
 }
